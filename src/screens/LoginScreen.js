@@ -3,6 +3,7 @@ import {StyleSheet, Text, ImageBackground, View} from 'react-native';
 
 import InputContainer from '../components/InputContainer';
 import Colors from '../constants/colors';
+import Button from '../components/Button';
 
 function LoginScreen() {
   return (
@@ -16,6 +17,7 @@ function LoginScreen() {
         <Text>Hey, Enter your details to get Sign in to your account</Text>
         <InputContainer placeholder="Enter Email/Phone Number" />
         <InputContainer placeholder="Passcode" />
+        <Button>{'Sign In'}</Button>
       </View>
     </ImageBackground>
   );
