@@ -37,17 +37,18 @@ export default LoginScreen;
 
 const styles = StyleSheet.create({
   sectionContainer: {
-    marginTop: 20,
-    marginBottom: 20,
+    marginTop: 150,
+    marginHorizontal: 90,
     padding: 10,
     alignItems: 'stretch',
     alignContent: 'center',
+    justifyContent: 'center',
     borderRadius: 6,
     alignSelf: 'center',
     backgroundColor: Colors.white0,
     // maxWidth: '90%',
     //maxHeight: '80%',
-    height: '60%',
+    height: '58%',
     width: '90%',
     elevation: 4,
     borderRadius: 8,
@@ -69,7 +70,4 @@ const styles = StyleSheet.create({
     marginTop: 10,
     marginBottom: 7,
   },
-  // ViewStyle: {
-  //   alignItems: 'center'
-  //   ali,
 });
