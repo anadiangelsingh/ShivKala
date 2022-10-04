@@ -1,6 +1,6 @@
 import {Pressable, StyleSheet, Text, View} from 'react-native';
 
-import Colors from '../constants/colors';
+import {Colors} from '../../constants/styles';
 
 function Button({children, onPress}) {
   return (
@@ -18,13 +18,12 @@ export default Button;
 
 const styles = StyleSheet.create({
   button: {
-    margin: 10,
     borderRadius: 6,
     paddingVertical: 6,
     paddingHorizontal: 12,
     backgroundColor: Colors.primary500,
     elevation: 2,
-    shadowColor: Colors.black1,
+    shadowColor: 'black',
     shadowOffset: {width: 1, height: 1},
     shadowOpacity: 0.25,
     shadowRadius: 4,

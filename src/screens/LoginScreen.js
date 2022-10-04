@@ -1,5 +1,11 @@
 import React from 'react';
-import {StyleSheet, Text, ImageBackground, View} from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  ImageBackground,
+  View,
+  SafeAreaView,
+} from 'react-native';
 
 import InputContainer from '../components/InputContainer';
 import Colors from '../constants/colors';
@@ -12,13 +18,17 @@ function LoginScreen() {
       resizeMode="cover"
       style={styles.rootScreen}
       imageStyle={styles.backgroundImage}>
-      <View style={styles.sectionContainer}>
-        <Text style={styles.HeadingStyle}> Login</Text>
-        <Text>Hey, Enter your details to get Sign in to your account</Text>
-        <InputContainer placeholder="Enter Email/Phone Number" />
-        <InputContainer placeholder="Passcode" />
-        <Button>{'Sign In'}</Button>
-      </View>
+      <SafeAreaView>
+        <View style={styles.sectionContainer}>
+          <Text style={styles.HeadingStyle}> Login</Text>
+          <Text style={styles.HeadingStyle}>
+            Hey, Enter your details to get Sign in to your account
+          </Text>
+          <InputContainer placeholder="Enter Email/Phone Number" />
+          <InputContainer placeholder="Passcode" />
+          <Button>{'Sign In'}</Button>
+        </View>
+      </SafeAreaView>
     </ImageBackground>
   );
 }
@@ -27,18 +37,20 @@ export default LoginScreen;
 
 const styles = StyleSheet.create({
   sectionContainer: {
-    flex: 1,
-    alignItems: 'center',
-    //justifyContent: 'center',
+    marginTop: 20,
+    marginBottom: 20,
+    padding: 10,
+    alignItems: 'stretch',
+    alignContent: 'center',
+    borderRadius: 6,
+    alignSelf: 'center',
     backgroundColor: Colors.white0,
-    marginTop: 50,
-    marginBottom: 50,
-    marginHorizontal: 200,
-    // padding: 16,
-    //height: 250,
-    //width: 500,
+    // maxWidth: '90%',
+    //maxHeight: '80%',
+    height: '60%',
+    width: '90%',
     elevation: 4,
-    borderRadius: 10,
+    borderRadius: 8,
     shadowColor: Colors.black1,
     shadowOffset: {width: 0, height: 2},
     shadowRadius: 6,
@@ -52,8 +64,12 @@ const styles = StyleSheet.create({
   },
   HeadingStyle: {
     fontWeight: 'bold',
+    textAlign: 'center',
     fontSize: 18,
     marginTop: 10,
     marginBottom: 7,
   },
+  // ViewStyle: {
+  //   alignItems: 'center'
+  //   ali,
 });
