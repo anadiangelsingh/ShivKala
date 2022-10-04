@@ -24,8 +24,11 @@ function LoginScreen() {
           <Text style={styles.HeadingStyle}>
             Hey, Enter your details to get Sign in to your account
           </Text>
-          <InputContainer placeholder="Enter Email/Phone Number" />
-          <InputContainer placeholder="Passcode" />
+          <InputContainer
+            placeholder="Enter Email/Phone Number"
+            secureTextEntry="false"
+          />
+          <InputContainer placeholder="Passcode" secureTextEntry="true" />
           <Button>{'Sign In'}</Button>
         </View>
       </SafeAreaView>
