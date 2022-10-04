@@ -6,6 +6,7 @@ const InputContainer = ({
   value,
   placeholder,
   onChangeText,
+  keyboardType,
   secureTextEntry,
 }) => {
   const {numberInput} = styles;
@@ -17,8 +18,8 @@ const InputContainer = ({
       value={value}
       placeholder={placeholder}
       placeholderTextColor="#aba7a7"
-      keyboardType="email-address"
-      secureTextEntry={secureTextEntry}
+      keyboardType={keyboardType}
+      secureTextEntry={false}
     />
   );
 };

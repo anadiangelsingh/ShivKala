@@ -26,9 +26,16 @@ function LoginScreen() {
           </Text>
           <InputContainer
             placeholder="Enter Email/Phone Number"
-            secureTextEntry="false"
+            keyboardType="email-address"
+            //secureTextEntry={'false'}
+            //="false"
           />
-          <InputContainer placeholder="Passcode" secureTextEntry="true" />
+          <InputContainer
+            placeholder="Passcode"
+            keyboardType="phone-pad"
+            //secureTextEntry={'true'}
+            //="false"
+          />
           <Button>{'Sign In'}</Button>
         </View>
       </SafeAreaView>
@@ -51,7 +58,7 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.white0,
     // maxWidth: '90%',
     //maxHeight: '80%',
-    height: '58%',
+    height: '60%',
     width: '90%',
     elevation: 4,
     borderRadius: 8,
