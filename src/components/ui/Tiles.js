@@ -1,9 +1,9 @@
 import {Pressable, StyleSheet, Text, View} from 'react-native';
-import IconButton from './IconButton';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 import Colors from '../../constants/colors';
 
-function Tiles({childrenn, onPress, children}) {
+function Tiles({icon, size, onPress, children}) {
   return (
     <View style={styles.buttonOuterContainer}>
       <Pressable
@@ -14,13 +14,8 @@ function Tiles({childrenn, onPress, children}) {
         }
         onPress={onPress}
         android_ripple={{color: Colors.primary600}}>
+        <Icon name={icon} size={size} />
         <Text style={styles.buttonText}>{children}</Text>
-        <IconButton
-          icon="reader-sharp"
-          //color={tintColor}
-          size={24}
-          //onPress={authCtx.logout}
-        />
       </Pressable>
     </View>
   );
@@ -33,12 +28,17 @@ const styles = StyleSheet.create({
     margin: 10,
     borderRadius: 10,
     overflow: 'hidden',
+    elevation: 2,
+    shadowColor: 'black',
+    shadowOffset: {width: 1, height: 1},
+    shadowOpacity: 0.9,
+    shadowRadius: 4,
   },
   buttonInnerContainer: {
     height: 120,
     width: 150,
     alignItems: 'center',
-    backgroundColor: '#fad7a0ea',
+    backgroundColor: '#c6975dea',
     justifyContent: 'center',
   },
   buttonText: {

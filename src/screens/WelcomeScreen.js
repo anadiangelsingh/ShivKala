@@ -21,12 +21,20 @@ function WelcomeScreen() {
           <Text style={styles.title2}> Stock Management System</Text>
           <View>
             <View style={styles.tiles}>
-              <Tiles>{'Stock Entry'} </Tiles>
-              <Tiles>{'Billing'} </Tiles>
+              <Tiles icon="reader-sharp" size={50}>
+                {'Stock Entry'}
+              </Tiles>
+              <Tiles icon="qr-code-outline" size={50}>
+                {'Billing'}
+              </Tiles>
             </View>
             <View style={styles.tiles}>
-              <Tiles>{'[Empty]'}</Tiles>
-              <Tiles>{'[Empty]'} </Tiles>
+              <Tiles icon="person-add" size={50}>
+                {'Add Wholesaler'}
+              </Tiles>
+              <Tiles icon="stats-chart" size={50}>
+                {'Reports'}
+              </Tiles>
             </View>
           </View>
         </View>
