@@ -11,7 +11,7 @@ import {
 
 import QRCode from 'react-native-qrcode-svg';
 
-const App = () => {
+const StockEntryForm = () => {
   const [inputText, setInputText] = useState('');
   const [qrvalue, setQrvalue] = useState('');
 
@@ -50,7 +50,7 @@ const App = () => {
     </SafeAreaView>
   );
 };
-export default App;
+export default StockEntryForm;
 
 const styles = StyleSheet.create({
   container: {
