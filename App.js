@@ -11,6 +11,7 @@ import {Colors} from './src/constants/styles';
 import {AuthContext} from './src/store/auth-context';
 import AuthContextProvider from './src/store/auth-context';
 import IconButton from './src/components/ui/IconButton';
+import StockEntryForm from './src/screens/StockEntryForm';
 
 const Stack = createNativeStackNavigator();
 
@@ -37,7 +38,7 @@ function AuthenticatedStack() {
         headerStyle: {backgroundColor: Colors.primary500},
         headerTintColor: 'white',
         //contentStyle: {backgroundColor: Colors.primary100},
-        headerShown: false,
+        headerShown: true,
       }}>
       <Stack.Screen
         name="Welcome"
@@ -53,6 +54,7 @@ function AuthenticatedStack() {
           ),
         }}
       />
+      <Stack.Screen name="StockEntryForm" component={StockEntryForm} />
     </Stack.Navigator>
   );
 }
@@ -61,20 +63,25 @@ function Navigation() {
   const authCtx = useContext(AuthContext);
 
   return (
-    <NavigationContainer>
+    <>
       {!authCtx.isAuthenticated && <AuthStack />}
       {authCtx.isAuthenticated && <AuthenticatedStack />}
-    </NavigationContainer>
+    </>
   );
 }
 
+function TilesNavigation() {
+  return <Stack.Navigator></Stack.Navigator>;
+}
 export default function App() {
   return (
     <>
       {/* <StatusBar style="light" /> */}
-      <AuthContextProvider>
-        <Navigation />
-      </AuthContextProvider>
+      <NavigationContainer>
+        <AuthContextProvider>
+          <Navigation />
+        </AuthContextProvider>
+      </NavigationContainer>
     </>
   );
 }

@@ -6,9 +6,24 @@ import {
   ImageBackground,
 } from 'react-native';
 import Tiles from '../components/ui/Tiles';
-import IconButton from '../components/ui/IconButton';
 
-function WelcomeScreen() {
+function WelcomeScreen({navigation}) {
+  function pressHandler(pressType) {
+    switch (pressType) {
+      case 'Stock Entry':
+        navigation.navigate('StockEntryForm');
+        break;
+      case 'Billing':
+        console.log('Billing');
+        break;
+      case 'Add Wholesaler':
+        console.log('Add Wholesaler');
+        break;
+      case 'Reports':
+        console.log('Reports');
+        break;
+    }
+  }
   return (
     <ImageBackground
       source={require('../assets/images/marissa-grootes-flRm0z3MEoA-unsplash.jpg')}
@@ -21,18 +36,30 @@ function WelcomeScreen() {
           <Text style={styles.title2}> Stock Management System</Text>
           <View>
             <View style={styles.tiles}>
-              <Tiles icon="reader-sharp" size={50}>
+              <Tiles
+                icon="reader-sharp"
+                size={50}
+                onPress={pressHandler.bind(this, 'Stock Entry')}>
                 {'Stock Entry'}
               </Tiles>
-              <Tiles icon="qr-code-outline" size={50}>
+              <Tiles
+                icon="qr-code-outline"
+                size={50}
+                onPress={pressHandler.bind(this, 'Billing')}>
                 {'Billing'}
               </Tiles>
             </View>
             <View style={styles.tiles}>
-              <Tiles icon="person-add" size={50}>
+              <Tiles
+                icon="person-add"
+                size={50}
+                onPress={pressHandler.bind(this, 'Add Wholesaler')}>
                 {'Add Wholesaler'}
               </Tiles>
-              <Tiles icon="stats-chart" size={50}>
+              <Tiles
+                icon="stats-chart"
+                size={50}
+                onPress={pressHandler.bind(this, 'Reports')}>
                 {'Reports'}
               </Tiles>
             </View>
