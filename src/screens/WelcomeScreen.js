@@ -14,7 +14,7 @@ function WelcomeScreen({navigation}) {
         navigation.navigate('StockEntryForm');
         break;
       case 'Billing':
-        console.log('Billing');
+        navigation.navigate('Billing');
         break;
       case 'Add Wholesaler':
         console.log('Add Wholesaler');
@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   title: {
-    fontSize: 25,
+    fontSize: 29,
     fontWeight: 'bold',
     marginBottom: 8,
     textAlign: 'center',

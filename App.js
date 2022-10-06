@@ -12,6 +12,7 @@ import {AuthContext} from './src/store/auth-context';
 import AuthContextProvider from './src/store/auth-context';
 import IconButton from './src/components/ui/IconButton';
 import StockEntryForm from './src/screens/StockEntryForm';
+import BillingScreen from './src/screens/BillingScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -35,19 +36,20 @@ function AuthenticatedStack() {
   return (
     <Stack.Navigator
       screenOptions={{
-        headerStyle: {backgroundColor: Colors.primary500},
-        headerTintColor: 'white',
+        headerStyle: {backgroundColor: '#e8d0b4ea'},
+        //headerTintColor: 'white',
         //contentStyle: {backgroundColor: Colors.primary100},
+
         headerShown: true,
       }}>
       <Stack.Screen
-        name="Welcome"
+        name="Home"
         component={WelcomeScreen}
         options={{
           headerRight: ({tintColor}) => (
             <IconButton
               icon="exit"
-              color={tintColor}
+              //color={tintColor}
               size={24}
               onPress={authCtx.logout}
             />
@@ -55,6 +57,7 @@ function AuthenticatedStack() {
         }}
       />
       <Stack.Screen name="StockEntryForm" component={StockEntryForm} />
+      <Stack.Screen name="Billing" component={BillingScreen} />
     </Stack.Navigator>
   );
 }
@@ -70,9 +73,6 @@ function Navigation() {
   );
 }
 
-function TilesNavigation() {
-  return <Stack.Navigator></Stack.Navigator>;
-}
 export default function App() {
   return (
     <>
