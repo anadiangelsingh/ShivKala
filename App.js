@@ -36,8 +36,8 @@ function AuthenticatedStack() {
       screenOptions={{
         headerStyle: {backgroundColor: Colors.primary500},
         headerTintColor: 'white',
-        contentStyle: {backgroundColor: Colors.primary100},
-        headerShown: true,
+        //contentStyle: {backgroundColor: Colors.primary100},
+        headerShown: false,
       }}>
       <Stack.Screen
         name="Welcome"
