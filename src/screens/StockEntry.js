@@ -5,52 +5,68 @@ import {
   Text,
   View,
   StyleSheet,
+  ImageBackground,
+  ScrollView,
   TextInput,
   TouchableOpacity,
 } from 'react-native';
 
 import QRCode from 'react-native-qrcode-svg';
 import StockEntryForm from '../components/Forms/StockEntryForm';
+import {Colors} from '../constants/styles';
 
 const StockEntry = () => {
   const [inputText, setInputText] = useState('');
   const [qrvalue, setQrvalue] = useState('');
 
+  function submitHandler() {
+    console.log(onSubmit);
+  }
+
   return (
     <SafeAreaView style={{flex: 1}}>
-      <View style={styles.container}>
-        <StockEntryForm />
-
-        {/* <Text style={styles.textStyle}>
+      <ImageBackground
+        source={require('../assets/images/marissa-grootes-flRm0z3MEoA-unsplash.jpg')}
+        resizeMode="cover"
+        style={styles.rootScreen}
+        imageStyle={styles.backgroundImage}>
+        <ScrollView style={styles.container}>
+          <View style={styles.formStyle}>
+            <StockEntryForm onSubmit={submitHandler} />
+            <View>
+              {/* <Text style={styles.textStyle}>
           Please insert any value to generate QR code
         </Text> */}
-        <TextInput
-          style={styles.textInputStyle}
-          onChangeText={inputText => setInputText(inputText)}
-          placeholder="Enter Any Value"
-          placeholderTextColor="#8b8a8a"
-          value={inputText}
-        />
-        <TouchableOpacity
-          style={styles.buttonStyle}
-          onPress={() => setQrvalue(inputText)}>
-          <Text style={styles.buttonTextStyle}>Generate QR Code</Text>
-        </TouchableOpacity>
-        {/* <Text style={styles.titleStyle}>
+              <TextInput
+                style={styles.textInputStyle}
+                onChangeText={inputText => setInputText(inputText)}
+                placeholder="Enter Any Value"
+                placeholderTextColor="#8b8a8a"
+                value={inputText}
+              />
+              <TouchableOpacity
+                style={styles.buttonStyle}
+                onPress={() => setQrvalue(inputText)}>
+                <Text style={styles.buttonTextStyle}>Generate QR Code</Text>
+              </TouchableOpacity>
+              {/* <Text style={styles.titleStyle}>
           Generation of QR Code in React Native
         </Text> */}
-        <QRCode
-          //QR code value
-          value={qrvalue ? qrvalue : 'NA'}
-          //size of QR Code
-          size={80}
-          //Color of the QR Code (Optional)
-          color="black"
-          //Background Color of the QR Code (Optional)
-          backgroundColor="white"
-          placeholder={'test'}
-        />
-      </View>
+              <QRCode
+                //QR code value
+                value={qrvalue ? qrvalue : 'NA'}
+                //size of QR Code
+                size={80}
+                //Color of the QR Code (Optional)
+                color="black"
+                //Background Color of the QR Code (Optional)
+                backgroundColor="white"
+                placeholder={'test'}
+              />
+            </View>
+          </View>
+        </ScrollView>
+      </ImageBackground>
     </SafeAreaView>
   );
 };
@@ -63,7 +79,7 @@ const styles = StyleSheet.create({
     //justifyContent: 'center',
     //alignItems: 'center',
     //textAlign: 'center',
-    //padding: 10,
+    padding: 5,
   },
   titleStyle: {
     fontSize: 20,
@@ -73,6 +89,17 @@ const styles = StyleSheet.create({
   textStyle: {
     textAlign: 'center',
     margin: 10,
+  },
+  formStyle: {
+    marginHorizontal: 10,
+    padding: 15,
+    borderRadius: 5,
+    backgroundColor: Colors.white0,
+    elevation: 2,
+    shadowColor: 'black',
+    shadowOffset: {width: 1, height: 1},
+    shadowOpacity: 0.35,
+    shadowRadius: 4,
   },
   // textInputStyle: {
   //   flexDirection: 'row',
@@ -99,5 +126,11 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
     // paddingVertical: 10,
     fontSize: 16,
+  },
+  rootScreen: {
+    flex: 1,
+  },
+  backgroundImage: {
+    opacity: 0.7,
   },
 });
