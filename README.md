@@ -5,7 +5,11 @@
 * `npm install --save react-native-vector-icons`
 * `npm install axios`
 * `npm install @react-navigation/stack`
+* `npm install @react-navigation/native-stack`
+* `npm install react-native-linear-gradient` to Support Linear gradient used in code.
+* `npm i -S react-native-svg react-native-qrcode-svg` 
 
+* `cd ios` & `pod install`
 
 
 ScreenShots ✨
