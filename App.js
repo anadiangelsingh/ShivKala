@@ -11,8 +11,9 @@ import {Colors} from './src/constants/styles';
 import {AuthContext} from './src/store/auth-context';
 import AuthContextProvider from './src/store/auth-context';
 import IconButton from './src/components/ui/IconButton';
-import StockEntryForm from './src/screens/StockEntryForm';
+import StockEntryForm from './src/screens/StockEntry';
 import BillingScreen from './src/screens/BillingScreen';
+import {ImageBackground, StyleSheet} from 'react-native';
 
 const Stack = createNativeStackNavigator();
 
@@ -34,31 +35,37 @@ function AuthenticatedStack() {
   const authCtx = useContext(AuthContext);
 
   return (
-    <Stack.Navigator
-      screenOptions={{
-        headerStyle: {backgroundColor: '#e8d0b4ea'},
-        //headerTintColor: 'white',
-        //contentStyle: {backgroundColor: Colors.primary100},
+    <ImageBackground
+      source={require('./src/assets/images/marissa-grootes-flRm0z3MEoA-unsplash.jpg')}
+      resizeMode="cover"
+      style={styles.rootScreen}
+      imageStyle={styles.backgroundImage}>
+      <Stack.Navigator
+        screenOptions={{
+          headerStyle: {backgroundColor: '#e8d0b4ea'},
+          //headerTintColor: 'white',
+          //contentStyle: {backgroundColor: Colors.primary100},
 
-        headerShown: true,
-      }}>
-      <Stack.Screen
-        name="Home"
-        component={WelcomeScreen}
-        options={{
-          headerRight: ({tintColor}) => (
-            <IconButton
-              icon="exit"
-              //color={tintColor}
-              size={24}
-              onPress={authCtx.logout}
-            />
-          ),
-        }}
-      />
-      <Stack.Screen name="StockEntryForm" component={StockEntryForm} />
-      <Stack.Screen name="Billing" component={BillingScreen} />
-    </Stack.Navigator>
+          headerShown: true,
+        }}>
+        <Stack.Screen
+          name="Home"
+          component={WelcomeScreen}
+          options={{
+            headerRight: ({tintColor}) => (
+              <IconButton
+                icon="exit"
+                //color={tintColor}
+                size={24}
+                onPress={authCtx.logout}
+              />
+            ),
+          }}
+        />
+        <Stack.Screen name="StockEntryForm" component={StockEntryForm} />
+        <Stack.Screen name="Billing" component={BillingScreen} />
+      </Stack.Navigator>
+    </ImageBackground>
   );
 }
 
@@ -85,3 +92,11 @@ export default function App() {
     </>
   );
 }
+const styles = StyleSheet.create({
+  rootScreen: {
+    flex: 1,
+  },
+  backgroundImage: {
+    opacity: 0.7,
+  },
+});

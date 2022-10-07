@@ -2,7 +2,15 @@ import {View, Text, TextInput, StyleSheet} from 'react-native';
 
 import {Colors} from '../../constants/styles';
 
-function Input({label, keyboardType, secure, onUpdateValue, value, isInvalid}) {
+function Input({
+  label,
+  keyboardType,
+  secure,
+  onUpdateValue,
+  value,
+  isInvalid,
+  placeholder,
+}) {
   return (
     <View style={styles.inputContainer}>
       <Text style={[styles.label, isInvalid && styles.labelInvalid]}>
@@ -15,6 +23,8 @@ function Input({label, keyboardType, secure, onUpdateValue, value, isInvalid}) {
         secureTextEntry={secure}
         onChangeText={onUpdateValue}
         value={value}
+        placeholder={placeholder}
+        placeholderTextColor="#8f8585"
       />
     </View>
   );

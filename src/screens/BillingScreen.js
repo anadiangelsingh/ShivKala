@@ -1,11 +1,7 @@
-import {View, Text} from 'react-native';
+import StockEntryForm from '../components/Forms/StockEntryForm';
 
 function BillingScreen() {
-  return (
-    <View>
-      <Text>Hello</Text>
-    </View>
-  );
+  return <StockEntryForm />;
 }
 
 export default BillingScreen;

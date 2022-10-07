@@ -11,26 +11,13 @@ import {
 
 import QRCode from 'react-native-qrcode-svg';
 
-const StockEntryForm = () => {
+const StockEntry = () => {
   const [inputText, setInputText] = useState('');
   const [qrvalue, setQrvalue] = useState('');
 
   return (
     <SafeAreaView style={{flex: 1}}>
       <View style={styles.container}>
-        <Text style={styles.titleStyle}>
-          Generation of QR Code in React Native
-        </Text>
-        <QRCode
-          //QR code value
-          value={qrvalue ? qrvalue : 'NA'}
-          //size of QR Code
-          size={250}
-          //Color of the QR Code (Optional)
-          color="black"
-          //Background Color of the QR Code (Optional)
-          backgroundColor="white"
-        />
         <Text style={styles.textStyle}>
           Please insert any value to generate QR code
         </Text>
@@ -46,11 +33,25 @@ const StockEntryForm = () => {
           onPress={() => setQrvalue(inputText)}>
           <Text style={styles.buttonTextStyle}>Generate QR Code</Text>
         </TouchableOpacity>
+        <Text style={styles.titleStyle}>
+          Generation of QR Code in React Native
+        </Text>
+        <QRCode
+          //QR code value
+          value={qrvalue ? qrvalue : 'NA'}
+          //size of QR Code
+          size={250}
+          //Color of the QR Code (Optional)
+          color="black"
+          //Background Color of the QR Code (Optional)
+          backgroundColor="white"
+          placeholder={'test'}
+        />
       </View>
     </SafeAreaView>
   );
 };
-export default StockEntryForm;
+export default StockEntry;
 
 const styles = StyleSheet.create({
   container: {
