@@ -72,7 +72,7 @@ function StockEntryForm(onSubmit, data) {
           value={enteredItemName}
           keyboardType="email-address"
           //isInvalid={emailIsInvalid}
-          placeholder={'Please enter item name'}
+          placeholder={'Please enter Item Name'}
         />
       </View>
       <View>
@@ -92,7 +92,7 @@ function StockEntryForm(onSubmit, data) {
           value={enteredWholesalerCode}
           //keyboardType="email-address"
           //isInvalid={emailIsInvalid}
-          placeholder={'Please enter wholesaler code'}
+          placeholder={'Please enter Wholesaler Code'}
         />
       </View>
       <View>
@@ -102,7 +102,7 @@ function StockEntryForm(onSubmit, data) {
           value={enteredPurchasePrice}
           keyboardType="number-pad"
           //isInvalid={emailIsInvalid}
-          placeholder={'Please enter '}
+          placeholder={'Please enter Purchasing Price'}
         />
       </View>
       <View>
@@ -112,7 +112,7 @@ function StockEntryForm(onSubmit, data) {
           value={enteredNetPrice}
           keyboardType="number-pad"
           //isInvalid={emailIsInvalid}
-          placeholder={'Please enter Net price'}
+          placeholder={'Please enter Net Price'}
         />
       </View>
 
@@ -123,7 +123,7 @@ function StockEntryForm(onSubmit, data) {
           value={enteredSellingPrice}
           keyboardType="decimal-pad"
           //isInvalid={emailIsInvalid}
-          placeholder={'Please enter selling price'}
+          placeholder={'Please enter Selling Price'}
         />
       </View>
       <View>
