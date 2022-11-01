@@ -15,7 +15,7 @@ import Button from '../ui/Button';
 import {useState} from 'react';
 import QRCode from 'react-native-qrcode-svg';
 
-function StockEntryForm(onSubmit) {
+function StockEntryForm() {
   const [enteredItemName, setEnteredItemName] = useState('');
   const [enteredItemCode, setEnteredItemCode] = useState('');
   const [enteredWholesalerCode, setEnteredWholesalerCode] = useState('');
