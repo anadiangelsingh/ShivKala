@@ -20,3 +20,4 @@ ScreenShots ✨
 
 <img src="https://user-images.githubusercontent.com/46760095/194298358-2e31bcb1-b3f3-479a-b95c-357bfc7e58f7.png" width="200" height="400">
 
+<img src="https://user-images.githubusercontent.com/46760095/199221759-1aaf870e-0464-41bc-8b57-2d979a76c18b.png" width="200" height="400">
