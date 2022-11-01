@@ -1,13 +1,21 @@
 import React from 'react';
-import {ImageBackground, StyleSheet, Text, View} from 'react-native';
+import {
+  ImageBackground,
+  StyleSheet,
+  Text,
+  View,
+  TextInput,
+  TouchableOpacity,
+} from 'react-native';
 import {ScrollView} from 'react-native';
 //import StockEntry from '../../screens/StockEntry';
 import Input from '../Auth/Input';
 import {Colors} from '../../constants/styles';
 import Button from '../ui/Button';
 import {useState} from 'react';
+import QRCode from 'react-native-qrcode-svg';
 
-function StockEntryForm(onSubmit, data) {
+function StockEntryForm(onSubmit) {
   const [enteredItemName, setEnteredItemName] = useState('');
   const [enteredItemCode, setEnteredItemCode] = useState('');
   const [enteredWholesalerCode, setEnteredWholesalerCode] = useState('');
@@ -15,16 +23,7 @@ function StockEntryForm(onSubmit, data) {
   const [enteredPurchasePrice, setEnteredPurchasePrice] = useState('');
   const [enteredSellingPrice, setEnteredSellingPrice] = useState('');
   const [enteredOther, setEnteredOther] = useState('');
-
-  const {
-    ItemName,
-    ItemCode,
-    WholesalerCode,
-    NetPrice,
-    PurchasePrice,
-    SellingPrice,
-    Other,
-  } = data;
+  const [qrvalue, setQrvalue] = useState('');
 
   function updateInputValueHandler(inputType, enteredValue) {
     switch (inputType) {
@@ -51,17 +50,22 @@ function StockEntryForm(onSubmit, data) {
         break;
     }
   }
-  function submitHandler() {
-    onSubmit({
-      ItemName: enteredItemName,
-      ItemCode: enteredItemCode,
-      WholesalerCode: enteredWholesalerCode,
-      NetPrice: enteredNetPrice,
-      PurchasePrice: enteredPurchasePrice,
-      SellingPrice: enteredSellingPrice,
-      Other: enteredOther,
-    });
-  }
+
+  function submitHandler() {}
+
+  //   return{
+  //   onSubmit={() => setData(enteredItemCode)}
+  // };
+  //   //   return {(
+  //   //     ItemName= enteredItemName,
+  //   //     ItemCode= enteredItemCode,
+  //   //     WholesalerCode= enteredWholesalerCode,
+  //   //     NetPrice= enteredNetPrice,
+  //   //     PurchasePrice= enteredPurchasePrice,
+  //   //     SellingPrice= enteredSellingPrice,
+  //   //     Other= enteredOther,
+  //   // )}
+  // }
 
   return (
     <View>
@@ -136,11 +140,49 @@ function StockEntryForm(onSubmit, data) {
           placeholder={''}
         />
       </View>
-      <View style={styles.buttons}>
-        <Button onPress={submitHandler}>
-          {'Generate QR Code'}
-          {/* {isLogin ? 'Log In' : 'Sign Up'} */}
+      {/* <View style={styles.buttons}> */}
+      {/* <Button onPress={({}) => setData(enteredItemCode)}> */}
+      {/* {'Generate QR Code'} */}
+      {/* {isLogin ? 'Log In' : 'Sign Up'} */}
+      {/* </Button> */}
+      {/* </View> */}
+
+      {/*.......
+      ......
+       QRCode Logic ......
+       ...........
+       */}
+
+      <View>
+        <Button
+          style={styles.buttonStyle}
+          onPress={() =>
+            setQrvalue([
+              enteredItemName,
+              enteredItemCode,
+              enteredWholesalerCode,
+              enteredNetPrice,
+              enteredPurchasePrice,
+              enteredSellingPrice,
+              enteredOther,
+            ])
+          }>
+          <Text style={styles.buttons}>Generate QR Code</Text>
         </Button>
+        {/* <Text style={styles.titleStyle}>
+          Generation of QR Code in React Native
+        </Text> */}
+        <QRCode
+          //QR code value
+          value={qrvalue ? qrvalue : 'NA'}
+          //size of QR Code
+          size={80}
+          //Color of the QR Code (Optional)
+          color="black"
+          //Background Color of the QR Code (Optional)
+          backgroundColor="white"
+          placeholder={'test'}
+        />
       </View>
     </View>
   );

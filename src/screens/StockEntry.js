@@ -20,7 +20,7 @@ const StockEntry = () => {
   const [qrvalue, setQrvalue] = useState('');
 
   function submitHandler() {
-    console.log(onSubmit);
+    // console.log(onSubmit);
   }
 
   return (
@@ -33,37 +33,6 @@ const StockEntry = () => {
         <ScrollView style={styles.container}>
           <View style={styles.formStyle}>
             <StockEntryForm onSubmit={submitHandler} />
-            <View>
-              {/* <Text style={styles.textStyle}>
-          Please insert any value to generate QR code
-        </Text> */}
-              <TextInput
-                style={styles.textInputStyle}
-                onChangeText={inputText => setInputText(inputText)}
-                placeholder="Enter Any Value"
-                placeholderTextColor="#8b8a8a"
-                value={inputText}
-              />
-              <TouchableOpacity
-                style={styles.buttonStyle}
-                onPress={() => setQrvalue(inputText)}>
-                <Text style={styles.buttonTextStyle}>Generate QR Code</Text>
-              </TouchableOpacity>
-              {/* <Text style={styles.titleStyle}>
-          Generation of QR Code in React Native
-        </Text> */}
-              <QRCode
-                //QR code value
-                value={qrvalue ? qrvalue : 'NA'}
-                //size of QR Code
-                size={80}
-                //Color of the QR Code (Optional)
-                color="black"
-                //Background Color of the QR Code (Optional)
-                backgroundColor="white"
-                placeholder={'test'}
-              />
-            </View>
           </View>
         </ScrollView>
       </ImageBackground>
