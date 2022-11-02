@@ -192,6 +192,7 @@ const styles = StyleSheet.create({
   },
   QRStyle: {
     flexDirection: 'row',
-    marginTop: 15,
+    marginTop: 12,
+    width: 220,
   },
 });
