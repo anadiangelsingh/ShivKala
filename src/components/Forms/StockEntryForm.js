@@ -6,6 +6,7 @@ import {
   View,
   TextInput,
   TouchableOpacity,
+  label,
 } from 'react-native';
 import {ScrollView} from 'react-native';
 //import StockEntry from '../../screens/StockEntry';
@@ -24,7 +25,6 @@ function StockEntryForm() {
   const [enteredSellingPrice, setEnteredSellingPrice] = useState('');
   const [enteredOther, setEnteredOther] = useState('');
   const [qrvalue, setQrvalue] = useState('');
-
   function updateInputValueHandler(inputType, enteredValue) {
     switch (inputType) {
       case 'Item Name':
@@ -51,21 +51,18 @@ function StockEntryForm() {
     }
   }
 
-  function submitHandler() {}
-
-  //   return{
-  //   onSubmit={() => setData(enteredItemCode)}
-  // };
-  //   //   return {(
-  //   //     ItemName= enteredItemName,
-  //   //     ItemCode= enteredItemCode,
-  //   //     WholesalerCode= enteredWholesalerCode,
-  //   //     NetPrice= enteredNetPrice,
-  //   //     PurchasePrice= enteredPurchasePrice,
-  //   //     SellingPrice= enteredSellingPrice,
-  //   //     Other= enteredOther,
-  //   // )}
-  // }
+  function QR() {
+    setQrvalue([
+      (IName = enteredItemName),
+      (ICode = enteredItemCode),
+      (IWCode = enteredWholesalerCode),
+      (INetPrice = enteredNetPrice),
+      (IPurPrice = enteredPurchasePrice),
+      (ISellPrice = enteredSellingPrice),
+      (IOther = enteredOther),
+    ]);
+    console.log(IName);
+  }
 
   return (
     <View>
@@ -154,35 +151,34 @@ function StockEntryForm() {
        */}
 
       <View>
-        <Button
-          style={styles.buttonStyle}
-          onPress={() =>
-            setQrvalue([
-              enteredItemName,
-              enteredItemCode,
-              enteredWholesalerCode,
-              enteredNetPrice,
-              enteredPurchasePrice,
-              enteredSellingPrice,
-              enteredOther,
-            ])
-          }>
+        <Button style={styles.buttonStyle} onPress={QR}>
           <Text style={styles.buttons}>Generate QR Code</Text>
         </Button>
         {/* <Text style={styles.titleStyle}>
           Generation of QR Code in React Native
         </Text> */}
-        <QRCode
-          //QR code value
-          value={qrvalue ? qrvalue : 'NA'}
-          //size of QR Code
-          size={80}
-          //Color of the QR Code (Optional)
-          color="black"
-          //Background Color of the QR Code (Optional)
-          backgroundColor="white"
-          placeholder={'test'}
-        />
+        <View style={styles.QRStyle}>
+          <QRCode
+            //QR code value
+            value={qrvalue ? qrvalue : 'NA'}
+            //size of QR Code
+            size={120}
+            //Color of the QR Code (Optional)
+            color="black"
+            //Background Color of the QR Code (Optional)
+            backgroundColor="white"
+            placeholder={'test'}
+          />
+          <View>
+            <Text> Item Name: {IName} </Text>
+            <Text> Item Code: {ICode}</Text>
+            <Text> Wholesaler Code : {IWCode}</Text>
+            <Text> Net Price : {INetPrice}</Text>
+            <Text> Purchase Price : {IPurPrice}</Text>
+            <Text> Selling Price : {ISellPrice}</Text>
+            <Text> Other Details : {IOther}</Text>
+          </View>
+        </View>
       </View>
     </View>
   );
@@ -193,5 +189,9 @@ export default StockEntryForm;
 const styles = StyleSheet.create({
   buttons: {
     marginTop: 12,
+  },
+  QRStyle: {
+    flexDirection: 'row',
+    marginTop: 15,
   },
 });

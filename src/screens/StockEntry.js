@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
     margin: 10,
   },
   formStyle: {
-    marginHorizontal: 10,
+    marginHorizontal: 5,
     padding: 15,
     borderRadius: 5,
     backgroundColor: Colors.white0,
