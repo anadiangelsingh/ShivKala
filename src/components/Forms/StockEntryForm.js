@@ -170,13 +170,13 @@ function StockEntryForm() {
             placeholder={'test'}
           />
           <View>
-            <Text> Item Name: {IName} </Text>
-            <Text> Item Code: {ICode}</Text>
-            <Text> Wholesaler Code : {IWCode}</Text>
-            <Text> Net Price : {INetPrice}</Text>
-            <Text> Purchase Price : {IPurPrice}</Text>
-            <Text> Selling Price : {ISellPrice}</Text>
-            <Text> Other Details : {IOther}</Text>
+            <Text> Item Name: {enteredItemName} </Text>
+            <Text> Item Code: {enteredItemCode}</Text>
+            <Text> Wholesaler Code : {enteredWholesalerCode}</Text>
+            <Text> Net Price : {enteredNetPrice}</Text>
+            <Text> Purchase Price : {enteredPurchasePrice}</Text>
+            <Text> Selling Price : {enteredSellingPrice}</Text>
+            <Text> Other Details : {enteredOther}</Text>
           </View>
         </View>
       </View>
